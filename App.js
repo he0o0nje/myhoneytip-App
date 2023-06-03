@@ -1,29 +1,48 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-web';
+import { StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-web';
+
 
 export default function App() {
-  const customalert = () => {
-    Alert.alert("JSX 밖 함수 구현")
+  const customAlert = () => {
+    Alert.alert("TouchableOpacity에도 onPress 속성이 있습니다")
   }
   return (
     <View style={styles.container}>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>버튼인디용</Text>
-      <Button
-        style={styles.buttonstyle}
-        title="버튼"
-        color="#f194ff"
-        onPress={customalert}
-        />
-        <Button
-        style={styles.buttonstyle}
-        title="버튼"
-        color="#ff0000"
-        onPress={()=>{customalert}}
-        />
-      </View>
+     <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+    <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -35,6 +54,9 @@ const styles = StyleSheet.create({
   },
   textcontainer: {
     height: 100,
+    borderColor:'#000',
+    borderWidth:1,
+    borderRadius:10,
     margin:10,
   },
   textstyle: {
