@@ -1,39 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-web';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </View>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </View>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </View>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </View>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </View>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </View>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </View>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </View>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </View>
-      <View style={styles.textcontainer}>
-      <Text style={styles.textstyle}>메롱</Text>
+      <Text style={styles.textstyle}>버튼인디용</Text>
+      <Button
+        style={styles.buttonstyle}
+        title="버튼"
+        color="#f194ff"
+        onPress={function(){
+          Alert.alert('팝업 알람!')
+        }}
+        />
+        <Button
+        style={styles.buttonstyle}
+        title="버튼"
+        color="#ff0000"
+        onPress={()=>{
+          Alert.alert('팝업 알람!')
+        }}
+        />
       </View>
     </View>
   );
@@ -46,9 +36,6 @@ const styles = StyleSheet.create({
   },
   textcontainer: {
     height: 100,
-    borderColor:'#000',
-    borderWidth:1,
-    borderRadius:10,
     margin:10,
   },
   textstyle: {
