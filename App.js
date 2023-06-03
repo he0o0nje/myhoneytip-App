@@ -5,12 +5,36 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>메롱</Text>
-      <Text>메롱</Text>
-      <Text>메롱</Text>
-      <Text>메롱</Text>
-      <Text>메롱</Text>
-      <Text>메롱</Text>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
+      <View style={styles.textcontainer}>
+      <Text style={styles.textstyle}>메롱</Text>
+      </View>
     </View>
   );
 }
@@ -19,7 +43,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  textcontainer: {
+    height: 100,
+    borderColor:'#000',
+    borderWidth:1,
+    borderRadius:10,
+    margin:10,
+  },
+  textstyle: {
+    textAlign:"center"
+  }
 });
