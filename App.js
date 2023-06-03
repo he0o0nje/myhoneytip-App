@@ -4,6 +4,9 @@ import { Alert, StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-web';
 
 export default function App() {
+  const customalert = () => {
+    Alert.alert("JSX 밖 함수 구현")
+  }
   return (
     <View style={styles.container}>
       <View style={styles.textcontainer}>
@@ -12,17 +15,13 @@ export default function App() {
         style={styles.buttonstyle}
         title="버튼"
         color="#f194ff"
-        onPress={function(){
-          Alert.alert('팝업 알람!')
-        }}
+        onPress={customalert}
         />
         <Button
         style={styles.buttonstyle}
         title="버튼"
         color="#ff0000"
-        onPress={()=>{
-          Alert.alert('팝업 알람!')
-        }}
+        onPress={()=>{customalert}}
         />
       </View>
     </View>
