@@ -1,48 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-web';
-
+import React from "react";
+import { StyleSheet, Image, View } from "react-native";
+import favicon from "./assets/favicon.png";
 
 export default function App() {
-  const customAlert = () => {
-    Alert.alert("TouchableOpacity에도 onPress 속성이 있습니다")
-  }
   return (
     <View style={styles.container}>
-     <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-    <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.textcontainer} onpress={customAlert}>
-      <Text style={styles.textstyle}>메롱</Text>
-      </TouchableOpacity>
+      <Image source={favicon} resizeMode={"repeat"} style={styles.imgstyle} />
     </View>
   );
 }
@@ -50,16 +13,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignContent: "center",
   },
-  textcontainer: {
-    height: 100,
-    borderColor:'#000',
-    borderWidth:1,
-    borderRadius:10,
-    margin:10,
+  imgstyle: {
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
-  textstyle: {
-    textAlign:"center"
-  }
 });
