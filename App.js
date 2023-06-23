@@ -7,11 +7,18 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import data from "./data.json";
 
 export default function App() {
+  let tip = data.tip;
+  let todayWeather = 10 + 17;
+  let todatCondition = "흐림";
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>나만의 꿀팁</Text>
+      <Text style={styles.weather}>
+        오늘의 날씨: {todayWeather + "°C " + todatCondition}
+      </Text>
       <Image style={styles.mainImg} source={require("./assets/main.png")} />
       <ScrollView
         style={styles.ButtonContainer}
@@ -25,29 +32,29 @@ export default function App() {
           <Text style={styles.ButtonText}>재테크</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Button3}>
-          <Text style={styles.ButtonText}>반려묘</Text>
+          <Text style={styles.ButtonText}>반려견</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Button4}>
           <Text style={styles.ButtonText}>꿀팁 찜</Text>
         </TouchableOpacity>
       </ScrollView>
       <View style={styles.cardContainer}>
-        <View style={styles.card}>
-          <Image
-            style={styles.cardImg}
-            source={require("./assets/pizza.png")}
-          />
-          <View style={styles.cardText}>
-            <Text style={styles.cardTitle}>먹다 남은 피자를 촉촉하게!</Text>
-            <Text style={styles.cardDesc} numberOfLines={3}>
-              먹다 남은 피자는 수분이 날라가기 때문에 처음처럼 맛있게 먹을 수
-              없는데요. 이럴 경우 그릇에 물을 받아 전자레인지 안에서 1분
-              30초에서 2분 정도 함께 돌려주면 촉촉하게 먹을 수 있습니다. 물이
-              전자레인지 안에서 수증기를 일으키고, 피자에 촉촉함을 더해줍니다.
-            </Text>
-            <Text style={styles.cardDate}>2023.06.23</Text>
-          </View>
-        </View>
+        {tip.map((content, i) => {
+          return (
+            <View style={styles.card} key={i}>
+              <Image style={styles.cardImg} source={{ uri: content.image }} />
+              <View style={styles.cardText}>
+                <Text style={styles.cardTitle} numberOfLines={1}>
+                  {content.title}
+                </Text>
+                <Text style={styles.cardDesc} numberOfLines={3}>
+                  {content.desc}
+                </Text>
+                <Text style={styles.cardDate}>{content.date}</Text>
+              </View>
+            </View>
+          );
+        })}
       </View>
     </ScrollView>
   );
@@ -62,6 +69,10 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginTop: 50,
     marginLeft: 20,
+  },
+  weather: {
+    alignSelf: "flex-end",
+    paddingRight: 20,
   },
   mainImg: {
     width: "90%",
