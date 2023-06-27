@@ -9,12 +9,11 @@ export default function AboutPage() {
         <Image
           style={styles.aboutimg}
           source={require("../assets/about.png")}
-          resizeMode="cover"
         />
-        <Text>하이 에브리원 마이네임 이즈 헌제신</Text>
-        <Text>웰컴투 마이 인스타그램</Text>
-        <TouchableOpacity>
-          <Text>He0o0nje</Text>
+        <Text style={styles.desc1}>하이 에브리원 마이네임이즈 헌제</Text>
+        <Text style={styles.desc2}>웰컴투 마이 인스타그램</Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttontext}>he0o0nje</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -48,5 +47,29 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 30,
+  },
+  desc1: {
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "700",
+    paddingLeft: 22,
+    paddingTop: 22,
+    paddingRight: 22,
+  },
+  desc2: {
+    textAlign: "center",
+    fontSize: 15,
+    fontWeight: "700",
+    padding: 22,
+  },
+  button: {
+    backgroundColor: "orange",
+    padding: 20,
+    borderRadius: 15,
+  },
+  buttontext: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "700",
   },
 });
