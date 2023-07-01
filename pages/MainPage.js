@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import data from "../data.json";
+import Card from "../components/Card";
 
 export default function MainPage() {
   let tip = data.tip;
@@ -40,20 +41,21 @@ export default function MainPage() {
       </ScrollView>
       <View style={styles.cardContainer}>
         {tip.map((content, i) => {
-          return (
-            <View style={styles.card} key={i}>
-              <Image style={styles.cardImg} source={{ uri: content.image }} />
-              <View style={styles.cardText}>
-                <Text style={styles.cardTitle} numberOfLines={1}>
-                  {content.title}
-                </Text>
-                <Text style={styles.cardDesc} numberOfLines={3}>
-                  {content.desc}
-                </Text>
-                <Text style={styles.cardDate}>{content.date}</Text>
-              </View>
-            </View>
-          );
+          // return (
+          //   <View style={styles.card} key={i}>
+          //     <Image style={styles.cardImg} source={{ uri: content.image }} />
+          //     <View style={styles.cardText}>
+          //       <Text style={styles.cardTitle} numberOfLines={1}>
+          //         {content.title}
+          //       </Text>
+          //       <Text style={styles.cardDesc} numberOfLines={3}>
+          //         {content.desc}
+          //       </Text>
+          //       <Text style={styles.cardDate}>{content.date}</Text>
+          //     </View>
+          //   </View>
+          //)
+          return <Card content={content} key={i} />;
         })}
       </View>
     </ScrollView>

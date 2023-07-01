@@ -20,6 +20,7 @@ export default function DetailPage() {
     date: "2020.09.09",
   };
   const popup = () => {
+    console.log("good");
     Alert.alert("ㅎㅇ!");
   };
   return (
