@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -9,12 +9,40 @@ import {
 } from "react-native";
 import data from "../data.json";
 import Card from "../components/Card";
+import Loading from "../components/Loading";
 
 export default function MainPage() {
-  let tip = data.tip;
+  const [state, setState] = useState([]);
+  const [CateState, setCateState] = useState([]);
+  const [ready, setReady] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setState(data.tip);
+      setCateState(data.tip);
+      setReady(false);
+    }, 1000);
+  }, []);
+
+  const category = (cate) => {
+    if (cate == "전체보기") {
+      setCateState(state);
+    } else {
+      setCateState(
+        state.filter((d) => {
+          return d.category == cate;
+        })
+      );
+    }
+  };
+
+  // let tip = state.tip;
   let todayWeather = 10 + 17;
   let todatCondition = "흐림";
-  return (
+
+  return ready ? (
+    <Loading />
+  ) : (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>나만의 꿀팁</Text>
       <Text style={styles.weather}>
@@ -26,21 +54,49 @@ export default function MainPage() {
         horizontal
         indicatorStyle={"white"}
       >
-        <TouchableOpacity style={styles.Button1}>
+        <TouchableOpacity
+          style={styles.ButtonAll}
+          onPress={() => {
+            category("전체보기");
+          }}
+        >
+          <Text style={styles.ButtonText}>전체보기</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.Button1}
+          onPress={() => {
+            category("생활");
+          }}
+        >
           <Text style={styles.ButtonText}>생활</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Button2}>
+        <TouchableOpacity
+          style={styles.Button2}
+          onPress={() => {
+            category("재테크");
+          }}
+        >
           <Text style={styles.ButtonText}>재테크</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Button3}>
+        <TouchableOpacity
+          style={styles.Button3}
+          onPress={() => {
+            category("반려견");
+          }}
+        >
           <Text style={styles.ButtonText}>반려견</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Button4}>
+        <TouchableOpacity
+          style={styles.Button4}
+          onPress={() => {
+            category("꿀팁 찜");
+          }}
+        >
           <Text style={styles.ButtonText}>꿀팁 찜</Text>
         </TouchableOpacity>
       </ScrollView>
       <View style={styles.cardContainer}>
-        {tip.map((content, i) => {
+        {CateState.map((content, i) => {
           // return (
           //   <View style={styles.card} key={i}>
           //     <Image style={styles.cardImg} source={{ uri: content.image }} />
@@ -87,6 +143,15 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 10,
     height: 60,
+  },
+  ButtonAll: {
+    width: 100,
+    height: 50,
+    padding: 15,
+    backgroundColor: "#20b2aa",
+    borderColor: "deeppink",
+    borderRadius: 15,
+    margin: 7,
   },
   Button1: {
     width: 100,
