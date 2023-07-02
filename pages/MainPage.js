@@ -10,6 +10,7 @@ import {
 import data from "../data.json";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
+import { StatusBar } from "expo-status-bar";
 
 export default function MainPage() {
   const [state, setState] = useState([]);
@@ -44,6 +45,7 @@ export default function MainPage() {
     <Loading />
   ) : (
     <ScrollView style={styles.container}>
+      <StatusBar style="light" />
       <Text style={styles.title}>나만의 꿀팁</Text>
       <Text style={styles.weather}>
         오늘의 날씨: {todayWeather + "°C " + todatCondition}
