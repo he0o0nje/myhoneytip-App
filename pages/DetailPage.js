@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Alert,
   ScrollView,
+  Share,
 } from "react-native";
 
 export default function DetailPage({ navigation, route }) {
@@ -38,15 +39,27 @@ export default function DetailPage({ navigation, route }) {
     console.log("good");
     Alert.alert("ㅎㅇ!");
   };
+
+  const share = () => {
+    Share.share({
+      message: `${tip.title} \n\n ${tip.desc} \n\n ${tip.image}`,
+    });
+  };
+
   return (
     <ScrollView style={styles.container}>
       <Image style={styles.image} source={{ uri: tip.image }} />
       <View style={styles.textcontainer}>
         <Text style={styles.title}>{tip.title}</Text>
         <Text style={styles.desc}>{tip.desc}</Text>
-        <TouchableOpacity style={styles.button} onPress={() => popup()}>
-          <Text style={styles.buttontext}>팁 찜하기</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonGroup}>
+          <TouchableOpacity style={styles.button} onPress={() => popup()}>
+            <Text style={styles.buttontext}>팁 찜하기</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => share()}>
+            <Text style={styles.buttontext}>팁 공유하기</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );
@@ -76,9 +89,14 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: "#eee",
   },
+  buttonGroup: {
+    flexDirection: "row",
+  },
   button: {
     width: 100,
     marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
     padding: 10,
     borderWidth: 1,
     borderColor: "deeppink",
