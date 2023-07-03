@@ -1,9 +1,15 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function Card({ content }) {
+export default function Card({ content, navigation }) {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => {
+        navigation.navigate("DetailPage", content);
+      }}
+    >
       <Image style={styles.cardImg} source={{ uri: content.image }} />
       <View style={styles.cardText}>
         <Text style={styles.cardTitle} numberOfLines={1}>
@@ -14,7 +20,7 @@ export default function Card({ content }) {
         </Text>
         <Text style={styles.cardDate}>{content.date}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
