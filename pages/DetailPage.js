@@ -9,6 +9,7 @@ import {
   ScrollView,
   Share,
 } from "react-native";
+import * as Linking from "expo-linking";
 
 export default function DetailPage({ navigation, route }) {
   const [tip, setTip] = useState({
@@ -46,6 +47,10 @@ export default function DetailPage({ navigation, route }) {
     });
   };
 
+  const link = () => {
+    Linking.openURL("https://spartacodingclub.kr");
+  };
+
   return (
     <ScrollView style={styles.container}>
       <Image style={styles.image} source={{ uri: tip.image }} />
@@ -58,6 +63,9 @@ export default function DetailPage({ navigation, route }) {
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={() => share()}>
             <Text style={styles.buttontext}>팁 공유하기</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => link()}>
+            <Text style={styles.buttontext}>외부 링크</Text>
           </TouchableOpacity>
         </View>
       </View>
