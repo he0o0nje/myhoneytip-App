@@ -18,10 +18,11 @@ export default function MainPage({ navigation, route }) {
   const [ready, setReady] = useState(true);
 
   useEffect(() => {
+    navigation.setOptions({
+      title: "나만의 꿀팁",
+    });
+
     setTimeout(() => {
-      navigation.setOptions({
-        title: "나만의 꿀팁",
-      });
       setState(data.tip);
       setCateState(data.tip);
       setReady(false);
@@ -102,7 +103,7 @@ export default function MainPage({ navigation, route }) {
         <TouchableOpacity
           style={styles.Button4}
           onPress={() => {
-            category("꿀팁 찜");
+            navigation.navigate("LikePage");
           }}
         >
           <Text style={styles.ButtonText}>꿀팁 찜</Text>
