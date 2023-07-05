@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function AboutPage() {
+export default function AboutPage({ navigation }) {
+  useEffect(() => {
+    navigation.setOptions({
+      title: "소개 페이지",
+      headerStyle: {
+        backgroundColor: "#1F266A",
+        shadowColor: "#1F266A",
+      },
+      headerTintColor: "#fff",
+    });
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>HI! 내가 바로 신헌제.</Text>
@@ -31,7 +42,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#fff",
     paddingLeft: 30,
-    paddingTop: 100,
+    paddingTop: 50,
     paddingRight: 30,
   },
   textcontainer: {
